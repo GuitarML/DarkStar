@@ -156,6 +156,7 @@ void DarkStarAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffe
     // Setup Audio Data
     const int numSamples = buffer.getNumSamples();
 
+
     // Amp =============================================================================
     if (fw_state == 1) {
         auto gain = static_cast<float> (gainParam->get());
@@ -176,11 +177,11 @@ void DarkStarAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffe
             buffer.applyGainRamp(0, (int) buffer.getNumSamples(), previousMasterValue , master);
             previousMasterValue = master;
         }
-    }
 
-    // process DC blocker
-    auto monoBlock = dsp::AudioBlock<float>(buffer).getSingleChannelBlock(0);
-    dcBlocker.process(dsp::ProcessContextReplacing<float>(monoBlock));
+        // process DC blocker
+        auto monoBlock = dsp::AudioBlock<float>(buffer).getSingleChannelBlock(0);
+        dcBlocker.process(dsp::ProcessContextReplacing<float>(monoBlock));
+    }
     
     for (int ch = 1; ch < buffer.getNumChannels(); ++ch)
         buffer.copyFrom(ch, 0, buffer, 0, 0, buffer.getNumSamples());

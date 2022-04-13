@@ -22,7 +22,7 @@ public:
 
 private:
     RTNeural::ModelT<float, 2, 1,
-        RTNeural::LSTMLayerT<float, 3, 16>,
+        RTNeural::LSTMLayerT<float, 2, 16>,
         RTNeural::DenseT<float, 16, 1>> model_cond2;
 
     float inArray alignas(16)[2] = { 0.0, 0.0 };
