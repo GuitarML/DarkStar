@@ -24,10 +24,7 @@ DarkStarAudioProcessor::DarkStarAudioProcessor()
         .withOutput("Output", AudioChannelSet::stereo(), true)
 #endif
     )  
-    //treeState(*this, nullptr, "PARAMETER", { std::make_unique<AudioParameterFloat>(GAIN_ID, GAIN_NAME, NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.5f),
-    //                    std::make_unique<AudioParameterFloat>(TONE_ID, TONE_NAME, NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.5f),
-    //                    std::make_unique<AudioParameterFloat>(MASTER_ID, MASTER_NAME, NormalisableRange<float>(0.0f, 1.0f, 0.01f), 0.5) })
-
+ 
 #endif
 {
     // initialize parameters:
@@ -189,20 +186,6 @@ void DarkStarAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffe
         buffer.copyFrom(ch, 0, buffer, 0, 0, buffer.getNumSamples());
 }
 
-//==============================================================================
-
-#if !JUCE_AUDIOPROCESSOR_NO_GUI
-bool DarkStarAudioProcessor::hasEditor() const
-{
-    return true; // (change this to false if you choose to not supply an editor)
-}
-
-
-AudioProcessorEditor* DarkStarAudioProcessor::createEditor()
-{
-    return new DarkStarAudioProcessorEditor (*this);
-}
-#endif
 
 //==============================================================================
 void DarkStarAudioProcessor::getStateInformation (MemoryBlock& destData)

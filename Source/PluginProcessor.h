@@ -39,11 +39,7 @@ public:
 
     void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
 
-    //==============================================================================
-    #if !JUCE_AUDIOPROCESSOR_NO_GUI
-    AudioProcessorEditor* createEditor() override;
-    bool hasEditor() const override;
-    #endif
+
     //==============================================================================
     const String getName() const override;
 
@@ -67,23 +63,19 @@ public:
 
     // Pedal/amp states
     int fw_state = 1; // 0 = off, 1 = on
-    //float driveValue = 0.5;
-    //float toneValue = 0.5;
-    //float masterValue = 0.5;
+
     float previousMasterValue = 0.5;
 
     bool lstm_state = true;;
 
     RT_LSTM LSTM;
 
-    //AudioProcessorValueTreeState treeState;
-
 private:
 
     AudioParameterFloat* gainParam;
     AudioParameterFloat* masterParam;
 
-    dsp::IIR::Filter<float> dcBlocker;  // Unused for TS-M1N3 plugin, leaving commented as template for future plugins
+    dsp::IIR::Filter<float> dcBlocker;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DarkStarAudioProcessor)
