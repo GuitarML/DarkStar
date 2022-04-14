@@ -4,7 +4,7 @@ Amp emulation plugin for MODEP devices.  This plugin uses a neural net model of 
 
 ![app](https://github.com/GuitarML/DarkStar/blob/main/resources/app.jpg)
 
-## MOD Branch
+## MODEP Build
 IMPORTANT: This is the MOD branch for DarkStar, which does not include GUI code or resources. 
 Because the mod toolchain uses gcc7, you will need to modify the json module code to reference "experimental/filesystem" instead of just "filesystem", or else it won't compile.
 
