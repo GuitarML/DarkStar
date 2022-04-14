@@ -13,8 +13,7 @@ IMPORTANT: The instrctions used here are specific to MODEP (Patchbox OS) running
 Note: This is a prototype build process. Hoping to simplify this in the future. 
 
 Required additional modifications after cloning DarkStar repo and updating submodules:
-1. Remove the JUCE module so that cmake can find the MOD toolchain version of JUCE. 
-2. Update json module code to reference "experimental/filesystem" instead of just "filesystem". There are several locations in the c++ code that this must be done.
+1. Update json module code to reference "experimental/filesystem" instead of just "filesystem". There are several locations in the c++ code that this must be done.
 
 Note: The internal samplerate conversion code for the neural net model has been removed since MOD devices use a fixed samplerate of 48kHz. 
 Note: References to the plugin editor have been removed, and gui resources removed from the cmake files. This is required to compile for MOD.
