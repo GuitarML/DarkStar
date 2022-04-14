@@ -182,9 +182,6 @@ void DarkStarAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffe
         auto monoBlock = dsp::AudioBlock<float>(buffer).getSingleChannelBlock(0);
         dcBlocker.process(dsp::ProcessContextReplacing<float>(monoBlock));
     }
-    
-    for (int ch = 1; ch < buffer.getNumChannels(); ++ch)
-        buffer.copyFrom(ch, 0, buffer, 0, 0, buffer.getNumSamples());
 }
 
 
