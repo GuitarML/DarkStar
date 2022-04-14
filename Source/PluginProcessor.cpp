@@ -125,15 +125,6 @@ void DarkStarAudioProcessor::releaseResources()
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool DarkStarAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
-{
-    const AudioChannelSet& mainInput = layouts.getMainInputChannelSet();
-    const AudioChannelSet& mainOutput = layouts.getMainOutputChannelSet();
-
-    return mainInput.size() == 1 && mainOutput.size() == 1;
-}
-#endif
-/*
 bool DarkStarAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
   #if JucePlugin_IsMidiEffect
@@ -156,7 +147,7 @@ bool DarkStarAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts)
   #endif
 }
 #endif
-*/
+
 
 void DarkStarAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
