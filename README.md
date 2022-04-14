@@ -1,6 +1,8 @@
 # DarkStar
 
-Amp Emulation Plugin for MODEP devices only, neural net model of the Gain param of HT40 amp with overdrive engaged, plus volume knob. 
+Amp emulation plugin for MODEP devices.  This plugin uses a neural net model of the Gain knob of HT40 amp with overdrive engaged, plus volume knob. 
+
+![app](https://github.com/GuitarML/DarkStar/blob/main/resources/app.jpg)
 
 ## MOD Branch
 IMPORTANT: This is the MOD branch for DarkStar, which does not include GUI code or resources. 
