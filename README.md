@@ -4,8 +4,10 @@ Amp emulation plugin for MODEP devices.  This plugin uses a neural net model of 
 
 ![app](https://github.com/GuitarML/DarkStar/blob/main/resources/app.jpg)
 
+For the latest binary release, see the [GuitarML modep-plugins release page](https://github.com/GuitarML/modep-plugins/releases)
+
 ## MODEP Build
-IMPORTANT: This is the MOD branch for DarkStar, which does not include GUI code or resources. 
+IMPORTANT: This is the MODEP branch for the DarkStar plugin
 Because the mod toolchain uses gcc7, you will need to modify the json module code to reference "experimental/filesystem" instead of just "filesystem", or else it won't compile.
 
 IMPORTANT: The instrctions used here are specific to MODEP (Patchbox OS) running on a Raspberry Pi3, and testing using [Pi-Stomp](https://github.com/TreeFallSound/pi-stomp) hardware. You will need to modify your build environment to match your target system in steps 2 and 3 below if different. Note that Patchbox OS is based on Raspian which is a 32-bit OS, not 64-bit.
