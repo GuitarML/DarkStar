@@ -125,7 +125,7 @@ void DarkStarAudioProcessor::releaseResources()
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool EpochAmpAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
+bool DarkStarAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
 {
     const AudioChannelSet& mainInput = layouts.getMainInputChannelSet();
     const AudioChannelSet& mainOutput = layouts.getMainOutputChannelSet();
