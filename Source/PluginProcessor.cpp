@@ -19,9 +19,9 @@ DarkStarAudioProcessor::DarkStarAudioProcessor()
     : AudioProcessor(BusesProperties()
 #if ! JucePlugin_IsMidiEffect
 #if ! JucePlugin_IsSynth
-        .withInput("Input", AudioChannelSet::stereo(), true)
+        .withInput("Input", AudioChannelSet::mono(), true)
 #endif
-        .withOutput("Output", AudioChannelSet::stereo(), true)
+        .withOutput("Output", AudioChannelSet::mono(), true)
 #endif
     )  
  
@@ -125,6 +125,15 @@ void DarkStarAudioProcessor::releaseResources()
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
+bool EpochAmpAudioProcessor::isBusesLayoutSupported(const BusesLayout& layouts) const
+{
+    const AudioChannelSet& mainInput = layouts.getMainInputChannelSet();
+    const AudioChannelSet& mainOutput = layouts.getMainOutputChannelSet();
+
+    return mainInput.size() == 1 && mainOutput.size() == 1;
+}
+#endif
+/*
 bool DarkStarAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
   #if JucePlugin_IsMidiEffect
@@ -147,7 +156,7 @@ bool DarkStarAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts)
   #endif
 }
 #endif
-
+*/
 
 void DarkStarAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
